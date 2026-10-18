@@ -46,3 +46,10 @@ each element with `str()`.
 same order, or to another `SpaceEfficientStringArray` with identical
 contents.
 - `repr(arr)` — shows up to three elements, then `...` if truncated.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
